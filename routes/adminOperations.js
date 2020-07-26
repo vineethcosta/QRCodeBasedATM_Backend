@@ -4,7 +4,9 @@ const mongoose = require('mongoose')
 const CardDetails =  mongoose.model("CardDetails")
 const AccountDetails =  mongoose.model("AccountDetails")
 const RequireCardId  = require('../middleware/RequireCardId')
-
+router.get('/',(req,res)=>{
+    res.json({"output":"IsAlive"})
+})
 
 router.post('/createCardDetails',(req,res)=>{
     const {cardId,cardHolderName,mobileNumber} = req.body 
