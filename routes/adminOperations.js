@@ -9,14 +9,15 @@ router.get('/',(req,res)=>{
 })
 
 router.post('/createCardDetails',(req,res)=>{
-    const {cardId,cardHolderName,mobileNumber} = req.body 
-    if(!cardId ||  !cardHolderName || !mobileNumber ){
+    const {cardId,cardHolderName,mobileNumber,pinId} = req.body 
+    if(!cardId ||  !cardHolderName || !mobileNumber || !pinId ){
       return  res.status(422).json({error:"Please add all the fields"})
     }
     const cardDetails = new CardDetails({
         cardId,
         cardHolderName,
-        mobileNumber
+        mobileNumber,
+        pinId
     })
     cardDetails.save().then(result=>{
         res.json({cardDetails:result})

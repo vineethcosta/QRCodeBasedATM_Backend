@@ -10,13 +10,13 @@ module.exports = (req,res,next)=>{
     CardDetails.findOne({cardId:cardId})
     .then(cardDetails=>{
         if(!cardDetails){
-           return res.status(422).json({error:"CardDetails not found"})
+           return res.status(404).json({error:"CardDetails not found"})
         }
         else{
             req.cardDetails=cardDetails,
             next()
         }
     }).catch(err=>{
-            console.log(err)
+            console.log(err+ "Hey Guys" )
         })
     }

@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const {ObjectId} = mongoose.Schema.Types
 const accountDetailsSchema = new mongoose.Schema({
     accountId:{
-        type:String,
+        type:Number,
         required:true
     },
     cardId:{

@@ -2,7 +2,11 @@ const mongoose = require('mongoose')
 
 const cardDetailsSchema = new mongoose.Schema({
     cardId:{
-        type:String,
+        type:Number,
+        required:true
+    },
+    pinId:{
+        type:Number,
         required:true
     },
     cardHolderName:{
@@ -10,7 +14,7 @@ const cardDetailsSchema = new mongoose.Schema({
         required:true
     },
     mobileNumber:{
-        type:String,
+        type:Number,
         required:true
     }
 },{timestamps:true})

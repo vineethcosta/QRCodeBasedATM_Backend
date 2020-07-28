@@ -20,13 +20,22 @@ mongoose.connection.on('error',(err)=>{
 require('./models/AccountDetails')
 require('./models/CardDetails')
 require('./models/TransactionDetails')
+require('./models/SyncTransaction')
+
 
 
 app.use(express.json())
 app.use(require('./routes/adminOperations'))
 app.use(require('./routes/balanceEnquiry'))
 app.use(require('./routes/deposit'))
+app.use(require('./routes/setBarcodeScanned'))
 app.use(require('./routes/withdraw'))
+app.use(require('./routes/getCardDetails'))
+app.use(require('./routes/setBalanceEnquiryCompleted'))
+app.use(require('./routes/setWithdrawCompleted'))
+app.use(require('./routes/setDepositCompleted'))
+app.use(require('./routes/deleteSyncOnTransactionCompleted'))
+app.use(require('./routes/getSyncDetails'))
 app.listen(PORT,()=>{
     console.log("server is running on",PORT)
 })
