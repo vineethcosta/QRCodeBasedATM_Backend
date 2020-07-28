@@ -8,7 +8,7 @@ router.get('/getSyncDetails',RequireCardId,(req,res)=>{
     SyncTransaction.findOne({ cardId:req.cardDetails._id})
     .then(syncDetails=>{
         if(!syncDetails){
-           return res.status(404).json(null)
+           return syncDetails
         }
         else{
           res.status(200).json({syncDetails:syncDetails})
