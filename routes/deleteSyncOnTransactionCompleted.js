@@ -5,7 +5,7 @@ const SyncTransaction =  mongoose.model("SyncTransaction")
 const RequireCardId  = require('../middleware/RequireCardId')
 
 router.post('/deleteSyncOnTransactionCompleted',RequireCardId,(req,res)=>{
-    SyncTransaction.deleteOne({cardId:req.cardDetails._id})
+    SyncTransaction.remove({cardId:req.cardDetails._id})
         .then(result=>{
             res.status(200).json({syncTransaction:result})
         })
